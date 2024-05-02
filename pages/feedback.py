@@ -57,18 +57,14 @@ with st.container(border=True):
             st.success("Shopkeeper on patrol to make things sparkle")
     if(data["big-fix"]  == "yes"):
         plumber_message = generateWorkingMessage(toilet_id, data["condition"], "Plumbers")
-        shopkeeper_message = """
-        Just a heads up that the toilet in """+toilet_id+""" is currently out of order due to some plumbing problems.
-        To avoid any messy surprises, could you please shut the door and put a sign up saying "Toilet Out of Order"?
-        We've already booked a plumber to come fix it asap, so hopefully it won't be down for long. 
-        Thanks for your help!
-        """
+        shopkeeper_message = "Just a heads up that the toilet in "+toilet_id
+        shopkeeper_message += " is currently out of order due to some plumbing problems. \n"
+        shopkeeper_message += "To avoid any messy surprises, could you please shut the door and put a sign up saying 'Toilet Out of Order'?\n"
+        shopkeeper_message += "We've already booked a plumber to come fix it asap, so hopefully it won't be down for long.\n"
+        shopkeeper_message += "Thanks for your help!"
         shopkeeper_response = sendMessage(shopkeeper_message, "SinKwangAngleBot")
         plumber_response = sendMessage(plumber_message, "CanteenWasteBot")
         if(shopkeeper_response["ok"]):
-            st.success("Gotta shut down the throne room before things get out of hand!")
+            st.success("[Employee] Gotta shut down the throne room before things get out of hand!")
         if(plumber_response["ok"]):
-            st.success("A plumbing knight is en route to slay your bathroom woes!")
-
-if(st.button("New Complain", use_container_width=True)):
-    st.switch_page("pages/complain.py")
+            st.success("[External Parties] A plumbing knight is en route to slay your bathroom woes!")
