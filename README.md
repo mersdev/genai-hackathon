@@ -72,3 +72,6 @@ GripeNWipe has the potential to revolutionize restroom hygiene and user experien
 1. Create the Python Virtual Environment via `python -m venv venv`
 1. Activate the Python Virtual Environment via `source venv/bin/activate`
 1. Install all the modules needed via `pip install -r requirements.txt`
+1. Start the app using `streamlit app.py`
+
+\*\* Before that, please get Gemini AI Api Key to use the AI
